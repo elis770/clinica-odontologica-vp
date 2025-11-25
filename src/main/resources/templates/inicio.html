@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clinic Information</title>
+    <style>
+        body { font-family: sans-serif; padding: 2em; }
+        .info-section { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; border-radius: 8px; }
+        .not-found { color: #d9534f; }
+    </style>
+</head>
+<body>
+    <h1>Clinic Information</h1>
+
+    <div class="info-section">
+        <h2>Patient Details</h2>
+        <div th:if="${patient != null}">
+            <p><strong>Name:</strong> <span th:text="${patient.name} + ' ' + ${patient.lastName}"/></p>
+            <p><strong>Email:</strong> <span th:text="${patient.email}"/></p>
+        </div>
+        <div th:if="${patient == null}">
+            <p class="not-found">Patient not found for the provided email.</p>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>Dentist Details</h2>
+        <div th:if="${dentist != null}">
+            <p><strong>Name:</strong> <span th:text="${dentist.name} + ' ' + ${dentist.lastName}"/></p>
+            <p><strong>Registration ID:</strong> <span th:text="${dentist.registration}"/></p>
+        </div>
+        <div th:if="${dentist == null}">
+            <p class="not-found">Dentist not found for the provided ID.</p>
+        </div>
+    </div>
+
+</body>
+</html>

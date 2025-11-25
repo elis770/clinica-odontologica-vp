@@ -8,5 +8,4 @@ public class DentalClinicApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DentalClinicApplication.class, args);
 	}
-
 }
